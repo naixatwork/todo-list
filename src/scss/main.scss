@@ -4,5 +4,8 @@
   body {
     @apply font-roboto;
   }
+  html,
+  body {
+    @apply h-full;
+  }
 }
-

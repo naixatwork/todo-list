@@ -1,4 +1,5 @@
 const { guessProductionMode } = require("@ngneat/tailwind");
+const colors = require("tailwindcss/colors");
 
 process.env.TAILWIND_MODE = guessProductionMode() ? "build" : "watch";
 
@@ -12,8 +13,12 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      color: {
+        amber: colors.amber,
+        rose: colors.rose,
+      },
       fontFamily: {
-        roboto: ["'Roboto'", "sans-serif"],
+        roboto: ["'Roboto'", "'Helvetica Neue'", "sans-serif"],
         zen: ["'Zen Loop'"],
         pacifico: ["Pacifico"],
       },

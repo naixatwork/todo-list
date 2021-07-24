@@ -1,0 +1,110 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '~@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+$tailwind-purple-palette: (
+  50: #f5f3ff,
+  100: #ede9fe,
+  200: #ddd6fe,
+  300: #c4b5fd,
+  400: #a78bfa,
+  500: #8b5cf6,
+  600: #7c3aed,
+  700: #6d28d9,
+  800: #5b21b6,
+  900: #4c1d95,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: #fff,
+    400: #fff,
+    500: #fff,
+    600: #fff,
+    700: #fff,
+    800: #fff,
+    900: #fff,
+  ),
+);
+
+$tailwind-amber-palette: (
+  50: #fffbeb,
+  100: #fef3c7,
+  200: #fde68a,
+  300: #fcd34d,
+  400: #fbbf24,
+  500: #f59e0b,
+  600: #d97706,
+  700: #b45309,
+  800: #92400e,
+  900: #78350f,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: #fff,
+    400: #fff,
+    500: #fff,
+    600: #fff,
+    700: #fff,
+    800: #fff,
+    900: #fff,
+  ),
+);
+
+$tailwind-rose-palette: (
+  50: #fff1f2,
+  100: #ffe4e6,
+  200: #fecdd3,
+  300: #fda4af,
+  400: #fb7185,
+  500: #f43f5e,
+  600: #e11d48,
+  700: #be123c,
+  800: #9f1239,
+  900: #881337,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: #fff,
+    400: #fff,
+    500: #fff,
+    600: #fff,
+    700: #fff,
+    800: #fff,
+    900: #fff,
+  ),
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$todo-list-primary: mat.define-palette($tailwind-purple-palette);
+$todo-list-accent: mat.define-palette($tailwind-amber-palette);
+
+// The warn palette is optional (defaults to red).
+$todo-list-warn: mat.define-palette($tailwind-rose-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$todo-list-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $todo-list-primary,
+      accent: $todo-list-accent,
+      warn: $todo-list-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($todo-list-theme);

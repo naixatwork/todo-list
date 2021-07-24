@@ -1,9 +1,15 @@
 module.exports = {
   important: true,
-  purge: [],
+  mode: "jit",
+  purge: [["./src/**/*.{html,ts,scss}"]],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        zen: ["'Zen Loop'"],
+        pacifico: ["Pacifico"],
+      },
+    },
   },
   variants: {
     extend: {},

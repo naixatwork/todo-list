@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { AuthComponent } from './auth.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 const routes: Routes = [
   {
@@ -14,7 +17,14 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AuthComponent],
-  imports: [CommonModule, RouterModule.forChild(routes), MatButtonModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+  ],
   exports: [RouterModule],
 })
 export class AuthModule {}

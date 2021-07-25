@@ -1,0 +1,28 @@
+.login {
+  animation: popup 300ms ease-out;
+}
+
+.container {
+  animation: fix-overflow 300ms ease;
+  //overflow: hidden;
+}
+
+@keyframes popup {
+  from {
+    transform: translateY(55vh);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fix-overflow {
+  99% {
+    overflow: hidden;
+  }
+
+  to {
+    overflow: auto;
+  }
+}

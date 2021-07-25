@@ -4,7 +4,7 @@
   (ngSubmit)="signIn()"
   class="mt-10 flex flex-col gap-1"
 >
-  <app-text-field label="username">
+  <app-text-field formControlName="username" label="username">
     <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
   </app-text-field>
   <!--  <mat-form-field appearance="fill">-->
@@ -27,7 +27,6 @@
     class="mt-2"
     mat-flat-button
     color="accent"
-    [disabled]="form.invalid"
     type="submit"
   >
     Sign-in

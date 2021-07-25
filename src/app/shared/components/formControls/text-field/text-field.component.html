@@ -1,6 +1,6 @@
 <mat-form-field appearance="fill" class="w-full">
   <mat-label>{{ label }}</mat-label>
-  <input matInput required />
+  <input matInput [(ngModel)]="value" />
   <mat-icon *ngIf="suffixIcon" matSuffix>{{
     suffixIcon._elementRef.nativeElement.lastChild.data
   }}</mat-icon>

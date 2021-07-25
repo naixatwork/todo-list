@@ -21,10 +21,12 @@ export class SignInComponent implements OnInit {
       password: ['', [Validators.required, CustomValidators.match('admin')]],
     });
 
-    this.form.get('password')?.valueChanges.subscribe(() => {
-      console.log(this.form.get('password'));
+    this.form.get('username')?.valueChanges.subscribe((value) => {
+      console.log(value);
     });
   }
 
-  public signIn(): void {}
+  public signIn(): void {
+    console.log(this.form.value);
+  }
 }

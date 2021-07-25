@@ -7,28 +7,11 @@
   <app-text-field formControlName="username" label="username">
     <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
   </app-text-field>
-  <!--  <mat-form-field appearance="fill">-->
-  <!--    <mat-label>username</mat-label>-->
-  <!--    <input matInput required formControlName="username" />-->
-  <!--    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
-  <!--    <mat-hint>username is admin</mat-hint>-->
-  <!--    <mat-error>username is required</mat-error>-->
-  <!--  </mat-form-field>-->
-
-  <mat-form-field appearance="fill">
-    <mat-label>password</mat-label>
-    <input matInput required type="password" formControlName="password" />
+  <app-password-field formControlName="password" label="password">
     <mat-icon matSuffix>vpn_key</mat-icon>
-    <mat-hint>password is admin</mat-hint>
-    <mat-error>password is required</mat-error>
-  </mat-form-field>
+  </app-password-field>
 
-  <button
-    class="mt-2"
-    mat-flat-button
-    color="accent"
-    type="submit"
-  >
+  <button class="mt-2" mat-flat-button color="accent" type="submit">
     Sign-in
   </button>
   <a routerLink="./sign-up"

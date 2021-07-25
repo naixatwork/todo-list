@@ -1,11 +1,11 @@
 import {
   AbstractControl,
   ControlValueAccessor,
+  NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
   ValidationErrors,
-  Validator,
 } from '@angular/forms';
-import { Component, forwardRef, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   providers: [
@@ -14,37 +14,57 @@ import { Component, forwardRef, Input } from '@angular/core';
       multi: true,
       useExisting: BaseControlComponent,
     },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: BaseControlComponent,
+    },
   ],
   template: '',
 })
 export abstract class BaseControlComponent<T = any>
-  implements ControlValueAccessor, Validator
+  implements ControlValueAccessor
 {
-  @Input() public readonly label!: string;
+  @Input() public label!: string;
+  public control!: AbstractControl;
+
   private _value: T | undefined;
   public get value(): T | undefined {
     return this._value;
   }
   public set value(value) {
     this._value = value;
-    if (value) this.onChange(value);
+    this.markAsTouched();
+    if (this.onChange) {
+      this.onChange(value);
+    }
   }
-
-  private onChange!: (value: T) => {};
+  private onChange!: (value: T | undefined) => {};
+  private onTouched = () => {};
+  private touched = false;
 
   writeValue(value: T) {
     this.value = value;
   }
 
-  registerOnChange(fn: (value: T) => {}) {
-    this.onChange = fn;
+  registerOnChange(onChange: (value: T | undefined) => {}) {
+    this.onChange = onChange;
   }
 
-  registerOnTouched(fn: (value: T) => {}) {}
+  private markAsTouched(): void {
+    if (!this.touched) {
+      this.onTouched();
+      this.touched = true;
+    }
+  }
+  registerOnTouched(onTouched: () => {}) {
+    this.onTouched = onTouched;
+  }
 
   setDisabledState?(isDisabled: boolean) {}
 
   validate(control: AbstractControl): ValidationErrors | null {
+    this.control = control;
     return null;
   }
 }

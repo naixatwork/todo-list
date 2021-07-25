@@ -1,25 +1,25 @@
 import { Component, ContentChild } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MatIcon } from '@angular/material/icon';
 import { BaseControlComponent } from '#shared/components/formControls/baseControl.component';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: TextFieldComponent,
+      useExisting: PasswordFieldComponent,
     },
     {
       provide: NG_VALIDATORS,
       multi: true,
-      useExisting: TextFieldComponent,
+      useExisting: PasswordFieldComponent,
     },
   ],
-  selector: 'app-text-field',
-  templateUrl: './text-field.component.html',
-  styleUrls: ['./text-field.component.scss'],
+  selector: 'app-password-field',
+  templateUrl: './password-field.component.html',
+  styleUrls: ['./password-field.component.scss'],
 })
-export class TextFieldComponent extends BaseControlComponent<string> {
+export class PasswordFieldComponent extends BaseControlComponent<string> {
   @ContentChild(MatIcon) suffixIcon!: MatIcon;
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from '#shared/validators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -9,7 +10,11 @@ import { CustomValidators } from '#shared/validators';
 })
 export class SignInComponent implements OnInit {
   public form!: FormGroup;
-  constructor(private readonly formBuilder: FormBuilder) {}
+
+  constructor(
+    private readonly formBuilder: FormBuilder,
+    private readonly router: Router
+  ) {}
 
   ngOnInit(): void {
     this.formInit();
@@ -20,13 +25,18 @@ export class SignInComponent implements OnInit {
       username: ['', [Validators.required]],
       password: ['', [Validators.required, CustomValidators.match('admin')]],
     });
-
-    // this.form.get('username')?.valueChanges.subscribe((value) => {
-    //   console.log(value);
-    // });
   }
 
   public signIn(): void {
-    console.log(this.form.value);
+    SignInComponent.setAuthToLocalStorage(this.form.value);
+    this.navigateToApplication();
+  }
+
+  private navigateToApplication(): void {
+    this.router.navigate(['/']).then();
+  }
+
+  private static setAuthToLocalStorage(value: any): void {
+    localStorage.setItem('auth', JSON.stringify(value));
   }
 }

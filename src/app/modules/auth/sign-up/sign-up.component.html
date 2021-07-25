@@ -1,26 +1,27 @@
 <h1 class="text-5xl">Sign-up</h1>
-<form class="mt-10 flex flex-col gap-1">
-    <mat-form-field appearance="fill">
-      <mat-label>username</mat-label>
-      <input matInput required />
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      <mat-error>username is required</mat-error>
-    </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>password</mat-label>
-    <input matInput required type="password" />
+<form
+  (ngSubmit)="singUp()"
+  [formGroup]="form"
+  class="mt-10 flex flex-col gap-1"
+>
+  <app-text-field formControlName="username" label="username">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+  </app-text-field>
+  <app-password-field formControlName="password" label="password">
     <mat-icon matSuffix>vpn_key</mat-icon>
-    <mat-error>username is required</mat-error>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>repeat password</mat-label>
-    <input matInput required type="password" />
+  </app-password-field>
+  <app-password-field formControlName="repeatPassword" label="password">
     <mat-icon matSuffix>vpn_key</mat-icon>
-    <mat-error>username is required</mat-error>
-  </mat-form-field>
+  </app-password-field>
 
-  <button mat-flat-button color="accent">Sign-up</button>
+  <button
+    class="mt-2"
+    mat-flat-button
+    color="accent"
+    type="submit"
+    [disabled]="form.invalid"
+  >
+    Sign-up
+  </button>
   <a routerLink="./..">Go back to <span class="underline">Sing-in</span></a>
 </form>

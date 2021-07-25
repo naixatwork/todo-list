@@ -1,7 +1,7 @@
 <h1 class="text-5xl">Sign-in</h1>
 <form
-  [formGroup]="form"
   (ngSubmit)="signIn()"
+  [formGroup]="form"
   class="mt-10 flex flex-col gap-1"
 >
   <app-text-field formControlName="username" label="username">
@@ -11,7 +11,13 @@
     <mat-icon matSuffix>vpn_key</mat-icon>
   </app-password-field>
 
-  <button class="mt-2" mat-flat-button color="accent" type="submit">
+  <button
+    class="mt-2"
+    mat-flat-button
+    color="accent"
+    type="submit"
+    [disabled]="form.invalid"
+  >
     Sign-in
   </button>
   <a routerLink="./sign-up"

@@ -49,28 +49,10 @@
       </div>
 
       <section class="p-5 mt-5">
-        <h1 class="text-5xl">Sign-in</h1>
-
-        <form class="mt-10 flex flex-col gap-1">
-          <mat-form-field appearance="fill">
-            <mat-label>username</mat-label>
-            <input matInput required />
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-            <mat-error>username is required</mat-error>
-          </mat-form-field>
-
-          <mat-form-field appearance="fill">
-            <mat-label>password</mat-label>
-            <input matInput required type="password" />
-            <mat-icon matSuffix>vpn_key</mat-icon>
-            <mat-error>username is required</mat-error>
-          </mat-form-field>
-
-          <button mat-flat-button color="accent">Sign-in</button>
-        </form>
-        <p class="font-pacifico mt-2 text-lg">
-          Progress made done
-          <span class="font-bold underline">easily</span> with
+        <router-outlet></router-outlet>
+        <p class="font-pacifico mt-5 text-lg text-center">
+          Progress made done,
+          <span class="font-black">easily</span> with
           <span class="font-black text-yellow-500">2-Duo</span>.
         </p>
       </section>

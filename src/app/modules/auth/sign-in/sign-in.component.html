@@ -1,0 +1,38 @@
+<h1 class="text-5xl">Sign-in</h1>
+<form
+  [formGroup]="form"
+  (ngSubmit)="signIn()"
+  class="mt-10 flex flex-col gap-1"
+>
+  <app-text-field label="username">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+  </app-text-field>
+  <!--  <mat-form-field appearance="fill">-->
+  <!--    <mat-label>username</mat-label>-->
+  <!--    <input matInput required formControlName="username" />-->
+  <!--    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
+  <!--    <mat-hint>username is admin</mat-hint>-->
+  <!--    <mat-error>username is required</mat-error>-->
+  <!--  </mat-form-field>-->
+
+  <mat-form-field appearance="fill">
+    <mat-label>password</mat-label>
+    <input matInput required type="password" formControlName="password" />
+    <mat-icon matSuffix>vpn_key</mat-icon>
+    <mat-hint>password is admin</mat-hint>
+    <mat-error>password is required</mat-error>
+  </mat-form-field>
+
+  <button
+    class="mt-2"
+    mat-flat-button
+    color="accent"
+    [disabled]="form.invalid"
+    type="submit"
+  >
+    Sign-in
+  </button>
+  <a routerLink="./sign-up"
+    >Don't have an account yet? <span class="underline">Sing-up</span></a
+  >
+</form>

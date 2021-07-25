@@ -1,0 +1,26 @@
+<h1 class="text-5xl">Sign-up</h1>
+<form class="mt-10 flex flex-col gap-1">
+    <mat-form-field appearance="fill">
+      <mat-label>username</mat-label>
+      <input matInput required />
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-error>username is required</mat-error>
+    </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>password</mat-label>
+    <input matInput required type="password" />
+    <mat-icon matSuffix>vpn_key</mat-icon>
+    <mat-error>username is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>repeat password</mat-label>
+    <input matInput required type="password" />
+    <mat-icon matSuffix>vpn_key</mat-icon>
+    <mat-error>username is required</mat-error>
+  </mat-form-field>
+
+  <button mat-flat-button color="accent">Sign-up</button>
+  <a routerLink="./..">Go back to <span class="underline">Sing-in</span></a>
+</form>

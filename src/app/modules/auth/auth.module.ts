@@ -6,24 +6,23 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-
-const routes: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-    component: AuthComponent,
-  },
-];
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { AuthRoutingModule } from '#modules/auth/auth-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TextFieldModule } from '#shared/components/formControls/text-field/text-field.module';
 
 @NgModule({
-  declarations: [AuthComponent],
+  declarations: [AuthComponent, SignInComponent, SignUpComponent],
   imports: [
+    AuthRoutingModule,
+    ReactiveFormsModule,
     CommonModule,
-    RouterModule.forChild(routes),
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
+    TextFieldModule,
   ],
   exports: [RouterModule],
 })

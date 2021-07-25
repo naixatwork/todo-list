@@ -1,59 +1,20 @@
-<div
-  class="
-    container
-    mx-auto
-    flex flex-col
-    relative
-    isolate
-    h-screen
-    justify-between
-  "
->
-  <div class="w-full p-5 min-h-[45vh]">
-    <h1
-      style="text-shadow: 1px 1px 2px #fff"
-      class="text-5xl text-center font-pacifico leading-none text-purple-500"
-    >
+<div class="container">
+  <div class="hero">
+    <h1 class="hero__heading">
       Welcome! to <br />
-      <span class="font-black text-yellow-500">2-Duo</span>
+      <span class="hero__heading__app">2-Duo</span>
     </h1>
-    <img
-      class="
-        w-11/12
-        lg:w-1/2
-        absolute
-        top-[15vh]
-        lg:inset-0
-        left-0
-        right-0
-        mx-auto
-        z-[-1]
-      "
-      src="assets/team_work.jpg"
-      alt="co-operating"
-    />
+    <img class="hero__image" src="assets/team_work.jpg" alt="co-operating" />
   </div>
-  <div class="login w-full lg:w-1/2 mx-auto px-2">
-    <div
-      class="
-        w-full
-        min-h-[55vh]
-        bg-purple-400/40
-        backdrop-filter backdrop-blur-sm
-        rounded-t-2xl
-        z-10
-      "
-    >
-      <div class="flex justify-center items-center pt-1">
-        <span class="h-[.3rem] w-[4rem] bg-gray-700 rounded-md"></span>
-      </div>
-
-      <section class="p-5 mt-5">
+  <div class="sign-in">
+    <div class="content">
+      <span class="content__mark"></span>
+      <section class="form">
         <router-outlet></router-outlet>
-        <p class="font-pacifico mt-5 text-lg text-center">
+        <p class="form__footer">
           Progress made done,
-          <span class="font-black">easily</span> with
-          <span class="font-black text-yellow-500">2-Duo</span>.
+          <span class="form__footer--bold">easily</span> with
+          <span class="form__footer--brand">2-Duo</span>.
         </p>
       </section>
     </div>

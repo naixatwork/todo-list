@@ -1,10 +1,84 @@
-.login {
+.hero {
+  @apply w-full min-h-[40vh] p-5;
+
+  &__heading {
+    @apply mt-10
+    text-5xl text-center text-purple-500
+    font-pacifico
+    leading-none;
+    text-shadow: 1px 1px 2px #fff;
+
+    &__app {
+      @apply font-black
+      text-yellow-500;
+    }
+  }
+
+  &__image {
+    @apply w-11/12 lg:w-1/2
+    absolute
+    top-[15vh]
+    lg:inset-0
+    left-0
+    right-0
+    mx-auto
+    z-[-1];
+  }
+}
+
+.sign-in {
+  @apply w-full lg:w-1/2
+  mx-auto
+  px-2;
   animation: popup 300ms ease-out;
 }
 
+.content {
+  @apply w-full
+  min-h-[60vh]
+  pt-1
+  bg-purple-400/40
+  backdrop-filter backdrop-blur-sm
+  rounded-t-2xl
+  z-10;
+
+  &__mark {
+    @apply h-[.3rem] w-[4rem]
+    mx-auto
+    block
+    bg-gray-700
+    rounded-md;
+  }
+}
+
+.form {
+  @apply p-5 mt-5;
+
+  &__footer {
+    @apply font-pacifico
+    text-lg text-center
+    mt-5;
+
+    &--bold {
+      @apply font-black;
+    }
+
+    &--brand {
+      @apply font-black text-yellow-500;
+    }
+  }
+}
+
 .container {
+  @apply mx-auto
+  flex flex-col
+  relative
+  isolate
+  h-screen
+  justify-between
+  overflow-hidden;
   animation: fix-overflow 300ms ease;
-  //overflow: hidden;
+  animation-fill-mode: forwards;
 }
 
 @keyframes popup {

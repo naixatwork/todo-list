@@ -1,0 +1,7 @@
+@layer components {
+  .sheet {
+    @apply bg-transparent shadow-none p-0;
+    &__backdrop {
+    }
+  }
+}

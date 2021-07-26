@@ -33,7 +33,7 @@ export class SignInComponent implements OnInit {
   }
 
   private navigateToApplication(): void {
-    this.router.navigate(['/']).then();
+    this.router.navigate(['/settings']).then();
   }
 
   private static setAuthToLocalStorage(value: any): void {

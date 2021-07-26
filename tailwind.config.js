@@ -22,6 +22,14 @@ module.exports = {
         zen: ["'Zen Loop'"],
         pacifico: ["Pacifico"],
       },
+      backgroundImage: (theme) => ({
+        "deep-lava": "url('~assets/bg-1.jpg')",
+        cloudly: "url('~assets/bg-2.jpg')",
+        "warm-lava": "url('~assets/bg-3.png')",
+        orbify: "url('~assets/orbify.gif')",
+        "bubble-gum": "url('~assets/bubble-gum.gif')",
+        lamp: "url('~assets/lamp.gif')",
+      }),
     },
   },
   variants: {

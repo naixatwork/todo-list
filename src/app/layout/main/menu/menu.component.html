@@ -1,0 +1,47 @@
+<div class="mt-5">
+  <div class="container bg-white/70 backdrop-blur-sm pt-1 pb-5 rounded-t-2xl">
+    <span
+      class="block h-[.3rem] w-[4rem] mx-auto mb-4 bg-gray-700 rounded-md"
+    ></span>
+    <mat-nav-list>
+      <a
+        routerLink="/tasks"
+        (click)="closeSheet()"
+        routerLinkActive="text-red-500"
+        mat-list-item
+      >
+        <div class="px-3 flex items-center gap-2">
+          <mat-icon>apps</mat-icon> Tasks
+        </div></a
+      >
+      <a
+        routerLink="/setting"
+        (click)="closeSheet()"
+        routerLinkActive="text-red-500"
+        mat-list-item
+        ><div class="px-3 flex items-center gap-2">
+          <mat-icon>settings</mat-icon> Setting
+        </div></a
+      >
+      <a
+        routerLink="/analytics"
+        (click)="closeSheet()"
+        routerLinkActive="text-red-500"
+        mat-list-item
+        ><div class="px-3 flex items-center gap-2">
+          <mat-icon>bubble_chart</mat-icon> Analytic
+        </div></a
+      >
+      <mat-divider></mat-divider>
+      <a
+        routerLink="/auth"
+        (click)="closeSheet()"
+        routerLinkActive="text-red-500"
+        mat-list-item
+        ><div class="px-3 flex items-center gap-2">
+          <mat-icon>logout</mat-icon> Sign-out
+        </div></a
+      >
+    </mat-nav-list>
+  </div>
+</div>

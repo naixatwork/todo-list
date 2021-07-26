@@ -1,0 +1,36 @@
+<div
+  class="
+    w-full
+    h-screen
+    p-3
+    lg:p-16
+    bg-deep-lava
+    lg:bg-cloudly
+    bg-center bg-no-repeat bg-scroll bg-cover
+  "
+>
+  <div
+    class="
+      p-5
+      pt-4
+      min-h-full
+      max-h-full
+      overflow-auto
+      container
+      mx-auto
+      rounded-2xl
+      bg-white/70
+      backdrop-filter backdrop-blur-md
+      ring-2 ring-purple-100
+      shadow
+    "
+  >
+    <header class="w-full flex justify-between items-center mb-5">
+      <h1 class="font-pacifico text-2xl font-bold">2-Duo</h1>
+      <button mat-icon-button (click)="openSheet()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </header>
+    <router-outlet></router-outlet>
+  </div>
+</div>

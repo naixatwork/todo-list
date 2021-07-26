@@ -3,6 +3,7 @@ import { MainService } from './main.service';
 import { SettingService } from '#shared/services/setting.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Background } from '#shared/models/settings.model';
 
 @Component({
   selector: 'app-main',
@@ -10,17 +11,24 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit, OnDestroy {
+  public background!: Background;
+
   private unsubscribeAll: Subject<null> = new Subject<null>();
+
   constructor(
     private readonly mainService: MainService,
     public readonly settingService: SettingService
   ) {}
 
   ngOnInit(): void {
+    this.backgroundInit();
+  }
+
+  private backgroundInit(): void {
     this.settingService.background
       .pipe(takeUntil(this.unsubscribeAll))
       .subscribe((value) => {
-        console.log(value);
+        this.background = value;
       });
   }
 

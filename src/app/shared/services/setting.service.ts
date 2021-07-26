@@ -7,6 +7,6 @@ import { Background } from '#shared/models/settings.model';
 })
 export class SettingService {
   public background: BehaviorSubject<Background> =
-    new BehaviorSubject<Background>(Background.DEEP_LAVA);
+    new BehaviorSubject<Background>(Background.cloudly);
   constructor() {}
 }

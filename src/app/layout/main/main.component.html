@@ -1,20 +1,19 @@
 <div
   [ngClass]="{
-    'bg-deep-lava': settingService.background.value === 'deep-lava',
-    'bg-warm-lava': settingService.background.value === 'warm-lava',
-    'bg-cloudly': settingService.background.value === 'cloudly',
-    'bg-bubble-gum': settingService.background.value === 'bubble-gum',
-    'bg-orbify': settingService.background.value === 'orbify',
-    'bg-lamp': settingService.background.value === 'lamp'
+    'bg-deep-lava': background === 'deep-lava',
+    'bg-warm-lava': background === 'warm-lava',
+    'bg-cloudly': background === 'cloudly',
+    'bg-bubble-gum': background === 'bubble-gum',
+    'bg-orbify': background === 'orbify',
+    'bg-lamp': background === 'lamp',
+    'bg-pink-400': background === 'pink',
+    'bg-red-400': background === 'red',
+    'bg-purple-400': background === 'purple',
+    'bg-blue-400': background === 'blue',
+    'bg-green-400': background === 'green',
+    'bg-yellow-400': background === 'yellow'
   }"
-  class="
-    bg-purple-700
-    bw-full
-    h-screen
-    p-3
-    lg:p-16
-    bg-center bg-no-repeat bg-scroll bg-cover
-  "
+  class="bw-full h-screen p-3 lg:p-16 bg-center bg-no-repeat bg-scroll bg-cover"
 >
   <div
     class="
@@ -28,7 +27,6 @@
       rounded-2xl
       bg-white/70
       backdrop-filter backdrop-blur-md
-      ring-2 ring-purple-100
       shadow
     "
   >

@@ -1,0 +1,18 @@
+.card {
+  @apply flex flex-col
+  justify-end
+  shadow
+  bg-center bg-cover
+  rounded-lg;
+
+  &__name {
+    @apply w-full
+    p-2
+    text-center
+    rounded-b-lg
+    bg-white/70
+    backdrop-blur-sm
+    mt-28
+    capitalize;
+  }
+}

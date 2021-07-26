@@ -52,7 +52,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
   }
 
   private navigateToApplication(): void {
-    this.router.navigate(['/settings']).then();
+    this.router.navigate(['/setting']).then();
   }
 
   ngOnDestroy(): void {

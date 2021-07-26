@@ -1,11 +1,18 @@
 <div
+  [ngClass]="{
+    'bg-deep-lava': settingService.background.value === 'deep-lava',
+    'bg-warm-lava': settingService.background.value === 'warm-lava',
+    'bg-cloudly': settingService.background.value === 'cloudly',
+    'bg-bubble-gum': settingService.background.value === 'bubble-gum',
+    'bg-orbify': settingService.background.value === 'orbify',
+    'bg-lamp': settingService.background.value === 'lamp'
+  }"
   class="
-    w-full
+    bg-purple-700
+    bw-full
     h-screen
     p-3
     lg:p-16
-    bg-deep-lava
-    lg:bg-cloudly
     bg-center bg-no-repeat bg-scroll bg-cover
   "
 >

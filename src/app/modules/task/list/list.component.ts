@@ -1,11 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ListFacade } from '#modules/task/list/list.facade';
 import { List } from '#modules/task/list/list.model';
-import { forkJoin, Subject } from 'rxjs';
-import { map, switchMap, takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { switchMap, takeUntil, tap } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { ListsViewComponent } from '#modules/task/list/lists-view/lists-view.component';
+import { ListDetailComponent } from '#modules/task/list/list-detail/list-detail.component';
 
 @Component({
   selector: 'app-list',
@@ -31,6 +32,14 @@ export class ListComponent implements OnInit, OnDestroy {
     this.setActiveList();
   }
 
+  private setActiveList(): void {
+    this.activatedRoute.params
+      .pipe(switchMap((params) => this.listFacade.getListById(params?.listId)))
+      .subscribe((response) => {
+        this.activeList = response;
+      });
+  }
+
   public openListsView(): void {
     this.bottomSheet.open(ListsViewComponent, {
       data: this.activeList?.id,
@@ -38,15 +47,11 @@ export class ListComponent implements OnInit, OnDestroy {
     });
   }
 
-  private setActiveList(): void {
-    this.activatedRoute.params
-      .pipe(
-        switchMap((params) => this.listFacade.getListById(params?.listId)),
-        takeUntil(this.unsubscribeAll)
-      )
-      .subscribe((response) => {
-        this.activeList = response;
-      });
+  public openListDetail(): void {
+    this.bottomSheet.open(ListDetailComponent, {
+      data: this.activeList,
+      panelClass: ['bg-transparent', 'shadow-none', 'p-0'],
+    });
   }
 
   ngOnDestroy(): void {

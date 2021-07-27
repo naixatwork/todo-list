@@ -20,7 +20,7 @@ export class ListService {
   }
 
   public updateList(list: UpdateList): Observable<RawList> {
-    return this.http.post<RawList>(`lists/${list.id}`, { ...list });
+    return this.http.put<RawList>(`lists/${list.id}`, { ...list });
   }
 
   public deleteList(id: string): Observable<null> {

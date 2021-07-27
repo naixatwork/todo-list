@@ -1,0 +1,30 @@
+<div class="sheet">
+  <div class="sheet__container">
+    <mat-nav-list>
+      <button (click)="editList()" mat-list-item>
+        <span class="px-3 flex items-center gap-2 capitalize">
+          <mat-icon>mode_edit</mat-icon> Edit List
+        </span>
+      </button>
+      <button
+        (click)="deleteList()"
+        mat-list-item
+        [disabled]="isMainListActive()"
+        [ngClass]="{ 'bg-gray-300/70': isMainListActive() }"
+      >
+        <span
+          [ngClass]="{
+            'text-red-500': !isMainListActive(),
+            'text-gray-500': isMainListActive()
+          }"
+          class="px-3 flex items-center gap-2"
+        >
+          <mat-icon>delete</mat-icon> Delete List
+          <span *ngIf="isMainListActive()" class="text-sm"
+            >(cannot delete main list)</span
+          >
+        </span>
+      </button>
+    </mat-nav-list>
+  </div>
+</div>

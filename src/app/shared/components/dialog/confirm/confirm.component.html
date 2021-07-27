@@ -1,0 +1,8 @@
+<div class="flex flex-col gap-2">
+  <h1 class="text-2xl text-center font-bold">{{ data.title ?? "" }}</h1>
+  <h1 class="text-lg text-center">{{ data.question }}</h1>
+  <div class="grid grid-cols-2 gap-2 mt-5">
+    <button (click)="confirm()" mat-flat-button color="primary">Confirm</button>
+    <button (click)="cancel()" mat-flat-button color="warn">Cancel</button>
+  </div>
+</div>

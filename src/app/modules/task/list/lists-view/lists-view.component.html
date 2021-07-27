@@ -3,7 +3,7 @@
     <mat-nav-list>
       <a
         *ngFor="let list of lists"
-        [ngClass]="{ 'text-red-500': list.id === this.activeListId }"
+        [ngClass]="{ 'text-purple-500': list.id === this.activeListId }"
         (click)="navigateToList(list.id)"
         mat-list-item
       >

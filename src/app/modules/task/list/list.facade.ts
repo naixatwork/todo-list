@@ -1,6 +1,11 @@
 import { Injectable, Injector } from '@angular/core';
 import { ListService } from '#modules/task/list/list.service';
-import { List, RawList } from '#modules/task/list/list.model';
+import {
+  CreateList,
+  List,
+  RawList,
+  UpdateList,
+} from '#modules/task/list/list.model';
 import { Response } from '#shared/models/response.model';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs';
@@ -51,9 +56,15 @@ export class ListFacade {
       .pipe(map((response) => ListFacade.filterList(response)));
   }
 
-  public createList(list: List): Observable<List> {
+  public createList(list: CreateList): Observable<List> {
     return this.listService
       .createList(list)
+      .pipe(map((response) => ListFacade.filterList(response)));
+  }
+
+  public updateList(list: UpdateList): Observable<List> {
+    return this.listService
+      .updateList(list)
       .pipe(map((response) => ListFacade.filterList(response)));
   }
 
@@ -64,5 +75,9 @@ export class ListFacade {
       date: new Date(rawList.date) ?? new Date(),
       isMain: rawList.isMain,
     };
+  }
+
+  public deleteList(id: string): Observable<null> {
+    return this.listService.deleteList(id);
   }
 }

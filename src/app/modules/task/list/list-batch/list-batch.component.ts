@@ -1,9 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { List } from '#modules/task/list/list.model';
+import { CreateList, List, UpdateList } from '#modules/task/list/list.model';
 import { ListFacade } from '#modules/task/list/list.facade';
-import { list } from 'postcss';
 
 @Component({
   selector: 'app-list-batch',
@@ -29,20 +28,34 @@ export class ListBatchComponent implements OnInit {
 
   private formInit(): void {
     this.form = this.formBuilder.group({
-      title: ['', [Validators.required]],
-      date: [''],
+      title: [this.data?.title ?? '', [Validators.required]],
+      date: [this.data?.date ?? ''],
     });
   }
 
   public submit(): void {
     if (this.isUpdate()) {
+      this.updateList();
     } else {
       this.createList();
     }
   }
 
   private createList(): void {
-    this.listFacade.createList(this.form.value).subscribe((response) => {
+    const value: CreateList = {
+      ...this.form.value,
+    };
+    this.listFacade.createList(value).subscribe((response) => {
+      this.closeDialog(response);
+    });
+  }
+
+  private updateList(): void {
+    const value: UpdateList = {
+      id: this.data?.id,
+      ...this.form.value,
+    };
+    this.listFacade.updateList(value).subscribe((response) => {
       this.closeDialog(response);
     });
   }

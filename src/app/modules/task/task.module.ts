@@ -22,6 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TextFieldModule } from '#shared/components/formControls/text-field/text-field.module';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ListDetailComponent } from './list/list-detail/list-detail.component';
+import { ConfirmModule } from '#shared/components/dialog/confirm/confirm.module';
 
 @NgModule({
   providers: [ListService, ListFacade, TaskGuard],
@@ -31,6 +33,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     ListBatchComponent,
     TaskBatchComponent,
     ListsViewComponent,
+    ListDetailComponent,
   ],
   imports: [
     CommonModule,
@@ -47,7 +50,12 @@ import { MatNativeDateModule } from '@angular/material/core';
     TextFieldModule,
     MatInputModule,
     MatNativeDateModule,
+    ConfirmModule,
   ],
-  entryComponents: [ListsViewComponent, ListBatchComponent],
+  entryComponents: [
+    ListsViewComponent,
+    ListBatchComponent,
+    ListDetailComponent,
+  ],
 })
 export class TaskModule {}

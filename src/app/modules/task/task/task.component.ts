@@ -14,8 +14,5 @@ export class TaskComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.activatedRoute.snapshot.params);
-    // this.router.navigate(['./feafaeeafae'], {
-    //   relativeTo: this.activatedRoute,
-    // });
   }
 }

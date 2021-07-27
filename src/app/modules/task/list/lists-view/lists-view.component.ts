@@ -19,9 +19,9 @@ export class ListsViewComponent implements OnInit {
 
   constructor(
     private readonly listFacade: ListFacade,
-    private readonly sheetRef: MatBottomSheetRef<ListsViewComponent>,
     private readonly activatedRoute: ActivatedRoute,
     private readonly router: Router,
+    private readonly sheetRef: MatBottomSheetRef<ListsViewComponent>,
     @Inject(MAT_BOTTOM_SHEET_DATA)
     public readonly activeListId: string,
     private readonly matDialog: MatDialog

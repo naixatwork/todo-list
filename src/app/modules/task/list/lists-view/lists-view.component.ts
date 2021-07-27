@@ -59,7 +59,7 @@ export class ListsViewComponent implements OnInit {
     this.lists.push(list);
   }
 
-  private closeSheet(): void {
+  public closeSheet(): void {
     this.sheetRef.dismiss();
   }
 }

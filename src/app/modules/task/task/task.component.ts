@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TaskFacade } from '#modules/task/task/task.facade';
-import { switchMap, tap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import { Task } from './task.model';
 import { TaskService } from '#modules/task/task/task.service';
 import { MatDialog } from '@angular/material/dialog';

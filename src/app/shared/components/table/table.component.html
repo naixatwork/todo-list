@@ -1,23 +1,23 @@
-<div class="_w-full _relative">
+<div class="w-full relative bg-transparent">
   <!--  LOADING-->
   <div
     *ngIf="state === 'LOADING'"
-    class="_text-3xl _absolute _inset-0 _bg-gray-100 _z-50 _opacity-80"
+    class="text-3xl absolute inset-0 bg-gray-100 z-50 opacity-80"
   >
     <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
-    <div class="_w-full _h-full _flex _justify-center _items-center">
-      <p class="_text-2xl _uppercase">loading data...</p>
+    <div class="w-full h-full flex justify-center items-center">
+      <p class="text-2xl uppercase">loading data...</p>
     </div>
   </div>
   <!--  LOADING-END-->
 
-  <table mat-table class="_w-full" [dataSource]="dataSource">
+  <table mat-table class="w-full bg-transparent" [dataSource]="dataSource">
     <ng-container
       *ngFor="let column of config.columns"
       [matColumnDef]="column.key"
     >
       <th
-        class="_capitalize"
+        class="capitalize"
         mat-header-cell
         *matHeaderCellDef
         [width]="column.width ?? null"
@@ -60,6 +60,7 @@
   </table>
 
   <mat-paginator
+    class="bg-transparent"
     [length]="this.config.pagination.total"
     [pageSize]="this.config.pagination.pageSize"
     [pageSizeOptions]="this.config.pagination.pageSizeOptions"

@@ -23,6 +23,12 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: 'analytic',
+    loadChildren: () =>
+      import('#modules/analytic/analytic.module').then((m) => m.AnalyticModule),
+    component: MainComponent,
+  },
+  {
     path: '**',
     redirectTo: 'task',
   },

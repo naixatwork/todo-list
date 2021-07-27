@@ -3,7 +3,7 @@ import { TaskService } from '#modules/task/task/task.service';
 import { Observable } from 'rxjs';
 import { Response } from '#shared/models/response.model';
 import * as _ from 'lodash';
-import { RawTask, Task, SituationalTask } from '#modules/task/task/task.model';
+import { RawTask, SituationalTask, Task } from '#modules/task/task/task.model';
 import { map } from 'rxjs/operators';
 
 @Injectable()
@@ -31,7 +31,7 @@ export class TaskFacade {
       );
   }
 
-  private static filterTasks(rawTasks: Array<RawTask>): Response<Task> {
+  public static filterTasks(rawTasks: Array<RawTask>): Response<Task> {
     if (!rawTasks) return { data: [], count: 0 };
 
     const tasks = _.map(rawTasks, (rawTask) => {
@@ -71,7 +71,7 @@ export class TaskFacade {
   private static filterTask(rawTask: RawTask): Task {
     if (!rawTask) return {} as Task;
 
-    const task: Task = {
+    return {
       id: rawTask._id,
       date: new Date(rawTask.date),
       title: rawTask.title,
@@ -79,6 +79,5 @@ export class TaskFacade {
       done: rawTask.done,
       description: rawTask.description,
     };
-    return task;
   }
 }

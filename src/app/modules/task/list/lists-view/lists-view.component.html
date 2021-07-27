@@ -12,6 +12,12 @@
         </div></a
       >
       <mat-divider></mat-divider>
+      <button (click)="closeSheet()" routerLink="/analytic" mat-list-item>
+        <span class="px-3 flex items-center gap-2 capitalize">
+          <mat-icon>done_all</mat-icon> Completed tasks
+        </span>
+      </button>
+      <mat-divider></mat-divider>
       <button (click)="createList()" mat-list-item>
         <span class="px-3 flex items-center gap-2 capitalize">
           <mat-icon>add</mat-icon> Create new list

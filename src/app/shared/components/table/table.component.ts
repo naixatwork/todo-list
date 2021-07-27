@@ -6,19 +6,19 @@ import {
   OnInit,
   SimpleChanges,
   ViewChild,
-} from "@angular/core";
-import { State, TableConfig } from "./table.model";
-import { MatTableDataSource } from "@angular/material/table";
-import { MatPaginator } from "@angular/material/paginator";
-import { Subject } from "rxjs";
-import { takeUntil } from "rxjs/operators";
-import * as _ from "lodash";
-import { ThemePalette } from "@angular/material/core/common-behaviors/color";
+} from '@angular/core';
+import { State, TableConfig } from './table.model';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import * as _ from 'lodash';
+import { ThemePalette } from '@angular/material/core/common-behaviors/color';
 
 @Component({
-  selector: "app-table",
-  templateUrl: "./table.component.html",
-  styleUrls: ["./table.component.scss"],
+  selector: 'app-table',
+  templateUrl: './table.component.html',
+  styleUrls: ['./table.component.scss'],
 })
 export class TableComponent<T> implements OnInit, OnChanges, OnDestroy {
   @Input() public config!: TableConfig<T>;
@@ -42,8 +42,8 @@ export class TableComponent<T> implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes["config"].currentValue) {
-      this.config = changes["config"].currentValue;
+    if (changes['config'].currentValue) {
+      this.config = changes['config'].currentValue;
       this.dataInit();
       this.displayedColumnsInit();
       this.dataSource.paginator = this.paginator;
@@ -55,7 +55,7 @@ export class TableComponent<T> implements OnInit, OnChanges, OnDestroy {
   }
 
   private displayedColumnsInit(): void {
-    this.displayedColumns = _.map(this.config.columns, "key") as Array<keyof T>;
+    this.displayedColumns = _.map(this.config.columns, 'key') as Array<keyof T>;
   }
 
   private stateInit(): void {
@@ -73,7 +73,7 @@ export class TableComponent<T> implements OnInit, OnChanges, OnDestroy {
   }
 
   public checkType(input: string | ((data: T) => string), data: T): string {
-    if (typeof input === "function") {
+    if (typeof input === 'function') {
       return input(data);
     }
     return input;

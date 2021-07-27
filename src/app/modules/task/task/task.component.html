@@ -1,1 +1,54 @@
-<p>task</p>
+<mat-nav-list class="mt-5">
+  <a mat-list-item *ngFor="let task of queue">
+    <mat-checkbox
+      color="primary"
+      class="flex justify-center items-center"
+      mat-list-icon
+      [checked]="task.done"
+      (click)="toggleTask(task.id, task.done)"
+    ></mat-checkbox>
+    <div mat-line>{{ task.title }}</div>
+    <div mat-line>{{ task.description ?? "" }}</div>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item><mat-icon>create</mat-icon>Edit</button>
+      <button mat-menu-item class="text-red-500">
+        <mat-icon color="warn">delete</mat-icon>Delete
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item *ngIf="task.date">
+        <mat-icon>event</mat-icon>{{ task.date | date }}
+      </button>
+    </mat-menu>
+  </a>
+  <mat-divider *ngIf="completed.length > 0"></mat-divider>
+  <h1 *ngIf="completed.length > 0" class="text-lg mt-3 px-5 font-bold">
+    Completed
+  </h1>
+  <a mat-list-item *ngFor="let task of completed">
+    <mat-checkbox
+      color="primary"
+      class="flex justify-center items-center"
+      mat-list-icon
+      [checked]="task.done"
+      (click)="toggleTask(task.id, task.done)"
+    ></mat-checkbox>
+    <p class="line-through" mat-line>{{ task.title }}</p>
+    <p mat-line>{{ task.description ?? "" }}</p>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item><mat-icon>create</mat-icon>Edit</button>
+      <button mat-menu-item class="text-red-500">
+        <mat-icon color="warn">delete</mat-icon>Delete
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item *ngIf="task.date">
+        <mat-icon>event</mat-icon>{{ task.date | date }}
+      </button>
+    </mat-menu>
+  </a>
+</mat-nav-list>

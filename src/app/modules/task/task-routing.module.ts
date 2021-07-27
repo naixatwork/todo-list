@@ -10,7 +10,7 @@ const routes: Routes = [
     component: ListComponent,
     children: [
       {
-        path: ':taskId',
+        path: '',
         component: TaskComponent,
       },
     ],

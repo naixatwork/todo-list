@@ -24,9 +24,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ListDetailComponent } from './list/list-detail/list-detail.component';
 import { ConfirmModule } from '#shared/components/dialog/confirm/confirm.module';
+import { TaskService } from '#modules/task/task/task.service';
+import { TaskFacade } from '#modules/task/task/task.facade';
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
-  providers: [ListService, ListFacade, TaskGuard],
+  providers: [ListService, ListFacade, TaskService, TaskFacade, TaskGuard],
   declarations: [
     TaskComponent,
     ListComponent,
@@ -51,6 +55,8 @@ import { ConfirmModule } from '#shared/components/dialog/confirm/confirm.module'
     MatInputModule,
     MatNativeDateModule,
     ConfirmModule,
+    MatCheckboxModule,
+    MatMenuModule,
   ],
   entryComponents: [
     ListsViewComponent,

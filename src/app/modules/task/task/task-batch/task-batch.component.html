@@ -1,1 +1,24 @@
-<p>task-batch works!</p>
+<div class="p-5">
+  <h1 class="text-lg mb-3">{{ isUpdate() ? "Update" : "Create" }} task</h1>
+  <form class="flex flex-col" [formGroup]="form" (ngSubmit)="submit()">
+    <app-text-field formControlName="title" label="title"></app-text-field>
+    <app-text-field
+      formControlName="description"
+      label="description"
+    ></app-text-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a date</mat-label>
+      <input
+        [matDatepicker]="picker"
+        [min]="today"
+        formControlName="date"
+        matInput
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <button mat-flat-button color="primary">
+      {{ isUpdate() ? "Update" : "Create" }}
+    </button>
+  </form>
+</div>

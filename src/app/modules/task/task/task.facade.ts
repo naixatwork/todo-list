@@ -23,9 +23,9 @@ export class TaskFacade {
     return this.taskService
       .getTaskByList(listId)
       .pipe(
-        map((rawLists) =>
+        map((rawTask) =>
           TaskFacade.filterTasksBySituation(
-            TaskFacade.filterTasks(rawLists).data
+            TaskFacade.filterTasks(rawTask).data
           )
         )
       );
@@ -60,5 +60,25 @@ export class TaskFacade {
         completed: _.filter(Tasks, (task) => task.done),
       },
     };
+  }
+
+  public getTaskById(id: string): Observable<Task> {
+    return this.taskService
+      .getTaskById(id)
+      .pipe(map((rawTask) => TaskFacade.filterTask(rawTask)));
+  }
+
+  private static filterTask(rawTask: RawTask): Task {
+    if (!rawTask) return {} as Task;
+
+    const task: Task = {
+      id: rawTask._id,
+      date: new Date(rawTask.date),
+      title: rawTask.title,
+      list: rawTask.list,
+      done: rawTask.done,
+      description: rawTask.description,
+    };
+    return task;
   }
 }

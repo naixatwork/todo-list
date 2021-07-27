@@ -40,6 +40,12 @@ export class ListComponent implements OnInit, OnDestroy {
       });
   }
 
+  public createTask(): void {
+    this.router
+      .navigate(['./task'], { relativeTo: this.activatedRoute })
+      .then();
+  }
+
   public openListsView(): void {
     this.bottomSheet.open(ListsViewComponent, {
       data: this.activeList?.id,

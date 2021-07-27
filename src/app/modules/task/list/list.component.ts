@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ListFacade } from '#modules/task/list/list.facade';
 import { List } from '#modules/task/list/list.model';
-import { forkJoin } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { forkJoin, Subject } from 'rxjs';
+import { map, switchMap, takeUntil } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { ListsViewComponent } from '#modules/task/list/lists-view/lists-view.component';
@@ -12,8 +12,10 @@ import { ListsViewComponent } from '#modules/task/list/lists-view/lists-view.com
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })
-export class ListComponent implements OnInit {
-  lists: Array<List>;
+export class ListComponent implements OnInit, OnDestroy {
+  public activeList: List | null;
+
+  private unsubscribeAll: Subject<null>;
 
   constructor(
     private readonly listFacade: ListFacade,
@@ -21,31 +23,34 @@ export class ListComponent implements OnInit {
     private readonly activatedRoute: ActivatedRoute,
     private readonly bottomSheet: MatBottomSheet
   ) {
-    this.lists = [];
+    this.activeList = null;
+    this.unsubscribeAll = new Subject<null>();
   }
 
   ngOnInit(): void {
-    this.listsInit();
+    this.setActiveList();
   }
 
-  listsInit(): void {
-    forkJoin({
-      lists: this.listFacade.getLists(),
-      mainList: this.listFacade.getMainList(),
-    })
+  public openListsView(): void {
+    this.bottomSheet.open(ListsViewComponent, {
+      data: this.activeList?.id,
+      panelClass: ['bg-transparent', 'shadow-none', 'p-0'],
+    });
+  }
+
+  private setActiveList(): void {
+    this.activatedRoute.params
       .pipe(
-        map((response) => {
-          return [response.mainList, ...response.lists.data];
-        })
+        switchMap((params) => this.listFacade.getListById(params?.listId)),
+        takeUntil(this.unsubscribeAll)
       )
       .subscribe((response) => {
-        this.lists = response;
+        this.activeList = response;
       });
   }
 
-  openListsView(): void {
-    this.bottomSheet.open(ListsViewComponent, {
-      panelClass: ['bg-transparent', 'shadow-none', 'p-0'],
-    });
+  ngOnDestroy(): void {
+    this.unsubscribeAll.next();
+    this.unsubscribeAll.complete();
   }
 }

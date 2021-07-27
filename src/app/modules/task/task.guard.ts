@@ -29,6 +29,7 @@ export class TaskGuard implements CanActivate {
     | UrlTree {
     return this.listFacade.getMainList().pipe(
       tap((response) => {
+        console.log('GUARD CALLED');
         this.router.navigate([`/task/${response.id}`]).then();
       }),
       map((response) => !!response),

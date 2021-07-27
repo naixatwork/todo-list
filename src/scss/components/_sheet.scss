@@ -2,7 +2,7 @@
   .sheet {
     @apply mt-5;
     &__container {
-      @apply container bg-white/70 backdrop-blur-sm pt-5 pb-5 rounded-t-2xl;
+      @apply container bg-white/70 backdrop-blur-sm rounded-t-2xl;
     }
     &__mark {
       @apply block h-[.3rem] w-[4rem] mx-auto mb-4 bg-gray-700 rounded-md;

@@ -12,4 +12,4 @@ export interface List extends Pick<RawList, 'title' | 'isMain'> {
 }
 
 export type CreateList = Pick<List, 'title' | 'date'>;
-export type UpdateList = Partial<CreateList>;
+export interface UpdateList extends Pick<List, 'id'>, Partial<CreateList> {}

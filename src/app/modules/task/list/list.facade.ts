@@ -42,15 +42,27 @@ export class ListFacade {
   public getMainList(): Observable<List> {
     return this.listService
       .getMainList()
-      .pipe(map((response) => ListFacade.filterMainList(response)));
+      .pipe(map((response) => ListFacade.filterList(response)));
   }
 
-  private static filterMainList(rawList: RawList): List {
+  public getListById(id: string): Observable<List> {
+    return this.listService
+      .getListById(id)
+      .pipe(map((response) => ListFacade.filterList(response)));
+  }
+
+  public createList(list: List): Observable<List> {
+    return this.listService
+      .createList(list)
+      .pipe(map((response) => ListFacade.filterList(response)));
+  }
+
+  private static filterList(rawList: RawList): List {
     return {
-      id: rawList._id ?? '',
+      id: rawList._id,
       title: rawList.title ?? '',
       date: new Date(rawList.date) ?? new Date(),
-      isMain: rawList.isMain ?? true,
+      isMain: rawList.isMain,
     };
   }
 }

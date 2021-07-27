@@ -15,6 +15,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { ListsViewComponent } from './list/lists-view/lists-view.component';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { TaskGuard } from '#modules/task/task.guard';
+import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TextFieldModule } from '#shared/components/formControls/text-field/text-field.module';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   providers: [ListService, ListFacade, TaskGuard],
@@ -33,6 +40,14 @@ import { TaskGuard } from '#modules/task/task.guard';
     MatButtonModule,
     MatIconModule,
     MatBottomSheetModule,
+    MatListModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    ReactiveFormsModule,
+    TextFieldModule,
+    MatInputModule,
+    MatNativeDateModule,
   ],
+  entryComponents: [ListsViewComponent, ListBatchComponent],
 })
 export class TaskModule {}

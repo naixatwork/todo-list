@@ -2,3 +2,9 @@
   @apply overflow-auto;
   height: calc(100vh - 120px);
 }
+
+@media only screen and (min-width: 1024px) {
+  .content {
+    height: calc(100vh - 205px);
+  }
+}

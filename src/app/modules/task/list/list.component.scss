@@ -1,0 +1,17 @@
+.list {
+  @apply overflow-auto mx-5;
+  height: calc(100% - 44px);
+}
+
+.footer {
+  @apply absolute
+  w-full
+  bottom-0
+  flex justify-between items-center
+  p-3;
+  border-top: 1px solid rgba(144, 144, 144, 0.2);
+
+  &__add {
+    @apply absolute left-0 right-0 mx-auto bottom-[17px];
+  }
+}

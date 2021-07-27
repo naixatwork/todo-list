@@ -1,11 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TaskComponent } from '#modules/task/task.component';
+import { ListComponent } from '#modules/task/list/list.component';
+import { TaskComponent } from '#modules/task/task/task.component';
+import { TaskGuard } from '#modules/task/task.guard';
 
 const routes: Routes = [
   {
-    path: '',
-    component: TaskComponent,
+    path: ':listId',
+    component: ListComponent,
+    children: [
+      {
+        path: ':taskId',
+        component: TaskComponent,
+      },
+    ],
+  },
+  {
+    path: '**',
+    canActivate: [TaskGuard],
+    component: ListComponent,
   },
 ];
 

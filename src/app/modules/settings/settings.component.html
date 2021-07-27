@@ -1,104 +1,107 @@
-<h1 class="text-2xl font-bold text-center">Setting</h1>
-<mat-divider class="mt-2 mb-5"></mat-divider>
-<h1 class="text-lg mb-6 capitalize">background image</h1>
-<div class="w-full grid grid-cols-2 lg:grid-cols-6 gap-5 form">
-  <h2 class="text-lg font-bold col-span-2 lg:col-span-6">Fantasy</h2>
-  <button
-    matRipple
-    [ngClass]="{ 'ring ring-purple-500': background === 'cloudly' }"
-    class="bg-cloudly card"
-    (click)="setBackground('cloudly')"
-  >
-    <span class="card__name">cloudly</span>
-  </button>
-  <button
-    matRipple
-    [ngClass]="{ 'ring ring-purple-500': background === 'deep-lava' }"
-    class="bg-deep-lava card"
-    (click)="setBackground('deep-lava')"
-  >
-    <span class="card__name">deep lava</span>
-  </button>
-  <button
-    matRipple
-    [ngClass]="{ 'ring ring-purple-500': background === 'warm-lava' }"
-    class="bg-warm-lava card"
-    (click)="setBackground('warm-lava')"
-  >
-    <span class="card__name">warm lava</span>
-  </button>
-  <h2 class="text-lg font-bold col-span-2 lg:col-span-6">Motion</h2>
-  <button
-    matRipple
-    [ngClass]="{ 'ring ring-purple-500': background === 'orbify' }"
-    class="bg-orbify card"
-    (click)="setBackground('orbify')"
-  >
-    <span class="card__name">orbify</span>
-  </button>
-  <button
-    matRipple
-    [ngClass]="{ 'ring ring-purple-500': background === 'lamp' }"
-    class="bg-lamp card"
-    (click)="setBackground('lamp')"
-  >
-    <span class="card__name">lamp</span>
-  </button>
-  <button
-    matRipple
-    [ngClass]="{ 'ring ring-purple-500': background === 'bubble-gum' }"
-    class="bg-bubble-gum card"
-    (click)="setBackground('bubble-gum')"
-  >
-    <span class="card__name">bubble gum</span>
-  </button>
-  <h2 class="text-lg font-bold col-span-2 lg:col-span-6">Solid</h2>
-  <button
-    matRipple
-    [ngClass]="{ 'ring ring-purple-500': background === 'pink' }"
-    class="bg-pink-200 card"
-    (click)="setBackground('pink')"
-  >
-    <span class="card__name">pink</span>
-  </button>
-  <button
-    matRipple
-    [ngClass]="{ 'ring ring-purple-500': background === 'red' }"
-    class="bg-red-200 card"
-    (click)="setBackground('red')"
-  >
-    <span class="card__name">red</span>
-  </button>
-  <button
-    matRipple
-    [ngClass]="{ 'ring ring-purple-500': background === 'purple' }"
-    class="bg-purple-200 card"
-    (click)="setBackground('purple')"
-  >
-    <span class="card__name">purple</span>
-  </button>
-  <button
-    matRipple
-    [ngClass]="{ 'ring ring-purple-500': background === 'blue' }"
-    class="bg-blue-200 card"
-    (click)="setBackground('blue')"
-  >
-    <span class="card__name">blue</span>
-  </button>
-  <button
-    matRipple
-    [ngClass]="{ 'ring ring-purple-500': background === 'green' }"
-    class="bg-green-200 card"
-    (click)="setBackground('green')"
-  >
-    <span class="card__name">green</span>
-  </button>
-  <button
-    matRipple
-    [ngClass]="{ 'ring ring-purple-500': background === 'yellow' }"
-    class="bg-yellow-200 card"
-    (click)="setBackground('yellow')"
-  >
-    <span class="card__name">yellow</span>
-  </button>
+<div class="p-5">
+  <h1 class="text-2xl font-bold text-center">Setting</h1>
+  <mat-divider class="mt-2 mb-5"></mat-divider>
+  <h1 class="text-lg mb-6 capitalize">background image</h1>
+  <div class="w-full grid grid-cols-2 lg:grid-cols-6 gap-5 form">
+    <h2 class="text-lg font-bold col-span-2 lg:col-span-6">Fantasy</h2>
+    <button
+      matRipple
+      [ngClass]="{ 'ring ring-purple-500': background === 'cloudly' }"
+      class="bg-cloudly card"
+      (click)="setBackground('cloudly')"
+    >
+      <span class="card__name">cloudly</span>
+    </button>
+    <button
+      matRipple
+      [ngClass]="{ 'ring ring-purple-500': background === 'deep-lava' }"
+      class="bg-deep-lava card"
+      (click)="setBackground('deep-lava')"
+    >
+      <span class="card__name">deep lava</span>
+    </button>
+    <button
+      matRipple
+      [ngClass]="{ 'ring ring-purple-500': background === 'warm-lava' }"
+      class="bg-warm-lava card"
+      (click)="setBackground('warm-lava')"
+    >
+      <span class="card__name">warm lava</span>
+    </button>
+    <h2 class="text-lg font-bold col-span-2 lg:col-span-6">Motion</h2>
+    <button
+      matRipple
+      [ngClass]="{ 'ring ring-purple-500': background === 'orbify' }"
+      class="bg-orbify card"
+      (click)="setBackground('orbify')"
+    >
+      <span class="card__name">orbify</span>
+    </button>
+    <button
+      matRipple
+      [ngClass]="{ 'ring ring-purple-500': background === 'lamp' }"
+      class="bg-lamp card"
+      (click)="setBackground('lamp')"
+    >
+      <span class="card__name">lamp</span>
+    </button>
+    <button
+      matRipple
+      [ngClass]="{ 'ring ring-purple-500': background === 'bubble-gum' }"
+      class="bg-bubble-gum card"
+      (click)="setBackground('bubble-gum')"
+    >
+      <span class="card__name">bubble gum</span>
+    </button>
+    <h2 class="text-lg font-bold col-span-2 lg:col-span-6">Solid</h2>
+    <button
+      matRipple
+      [ngClass]="{ 'ring ring-purple-500': background === 'pink' }"
+      class="bg-pink-200 card"
+      (click)="setBackground('pink')"
+    >
+      <span class="card__name">pink</span>
+    </button>
+    <button
+      matRipple
+      [ngClass]="{ 'ring ring-purple-500': background === 'red' }"
+      class="bg-red-200 card"
+      (click)="setBackground('red')"
+    >
+      <span class="card__name">red</span>
+    </button>
+    <button
+      matRipple
+      [ngClass]="{ 'ring ring-purple-500': background === 'purple' }"
+      class="bg-purple-200 card"
+      (click)="setBackground('purple')"
+    >
+      <span class="card__name">purple</span>
+    </button>
+    <button
+      matRipple
+      [ngClass]="{ 'ring ring-purple-500': background === 'blue' }"
+      class="bg-blue-200 card"
+      (click)="setBackground('blue')"
+    >
+      <span class="card__name">blue</span>
+    </button>
+    <button
+      matRipple
+      [ngClass]="{ 'ring ring-purple-500': background === 'green' }"
+      class="bg-green-200 card"
+      (click)="setBackground('green')"
+    >
+      <span class="card__name">green</span>
+    </button>
+    <button
+      matRipple
+      [ngClass]="{ 'ring ring-purple-500': background === 'yellow' }"
+      class="bg-yellow-200 card"
+      (click)="setBackground('yellow')"
+    >
+      <span class="card__name">yellow</span>
+    </button>
+  </div>
+
 </div>

@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TaskFacade } from '#modules/task/task/task.facade';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 import { Task } from './task.model';
 import { TaskService } from '#modules/task/task/task.service';
+import { MatDialog } from '@angular/material/dialog';
+import { Confirm } from '#shared/models/confirm.model';
+import { ConfirmComponent } from '#shared/components/dialog/confirm/confirm.component';
 
 @Component({
   selector: 'app-task',
@@ -18,7 +21,8 @@ export class TaskComponent implements OnInit {
     private readonly taskService: TaskService,
     private readonly taskFacade: TaskFacade,
     private readonly router: Router,
-    private readonly activatedRoute: ActivatedRoute
+    private readonly activatedRoute: ActivatedRoute,
+    private readonly matDialog: MatDialog
   ) {
     this.queue = [];
     this.completed = [];
@@ -26,6 +30,26 @@ export class TaskComponent implements OnInit {
 
   ngOnInit(): void {
     this.tasksInit();
+  }
+
+  public deleteTask(id: string, title: string): void {
+    const confirmData: Confirm = {
+      question: `Are you sure about deleting ${title} task?`,
+    };
+    this.matDialog
+      .open(ConfirmComponent, {
+        data: confirmData,
+      })
+      .afterClosed()
+      .subscribe((result: boolean) => {
+        if (result) this.deleteTaskFromServer(id);
+      });
+  }
+
+  private deleteTaskFromServer(id: string): void {
+    this.taskService.deleteTask(id).subscribe(() => {
+      this.tasksInit();
+    });
   }
 
   private tasksInit(): void {
